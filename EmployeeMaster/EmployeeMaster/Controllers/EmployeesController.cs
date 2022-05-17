@@ -19,14 +19,14 @@ namespace EmployeeMaster.Controllers
             _employeeData = employeeData;
         }
         [HttpGet]
-        [Route("api/[controller]")]
+        [Route("api/GetAll/[controller]")]
         public IActionResult GetEmployees()
         {
             return Ok(_employeeData.GetEmployees());
         }
 
         [HttpGet]
-        [Route("api/[controller]/EmployeeERPId={EmployeeERPId}")]
+        [Route("api/Get[controller]/EmployeeERPId={EmployeeERPId}")]
         public IActionResult GetEmployee([FromRoute] string EmployeeERPId)
         {
             var EmployeeData = _employeeData.GetEmployee(EmployeeERPId);
@@ -41,7 +41,7 @@ namespace EmployeeMaster.Controllers
         }
 
         [HttpPost]
-        [Route("api/[controller]")]
+        [Route("api/Add/[controller]")]
         public IActionResult AddEmployee([FromBody]  Employee employee)
         {
             var EmployeeData = _employeeData.GetEmployee(employee.EmployeeERPId);
@@ -57,7 +57,7 @@ namespace EmployeeMaster.Controllers
 
         }
         [HttpPatch]
-        [Route("api/[controller]")]
+        [Route("api/Edit/[controller]")]
         public IActionResult EditEmployee([FromBody] Employee employee)
         {
           
@@ -74,7 +74,7 @@ namespace EmployeeMaster.Controllers
             }
         }
         [HttpDelete]
-        [Route("api/[controller]/EmployeeERPId={EmployeeERPId}")]
+        [Route("api/Delete/[controller]/EmployeeERPId={EmployeeERPId}")]
         public IActionResult DeleteEmployee([FromRoute] string EmployeeERPId)
         {
             var EmployeeData = _employeeData.GetEmployee(EmployeeERPId);

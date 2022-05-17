@@ -64,3 +64,4 @@ F:\OneDrive\Projects\Field Assist\EmployeeMaster\EmployeeMaster\obj\Debug\netcor
 F:\OneDrive\Projects\Field Assist\EmployeeMaster\EmployeeMaster\obj\Debug\netcoreapp3.1\EmployeeMaster.dll
 F:\OneDrive\Projects\Field Assist\EmployeeMaster\EmployeeMaster\obj\Debug\netcoreapp3.1\EmployeeMaster.pdb
 F:\OneDrive\Projects\Field Assist\EmployeeMaster\EmployeeMaster\obj\Debug\netcoreapp3.1\EmployeeMaster.genruntimeconfig.cache
+F:\OneDrive\Projects\Field Assist\EmployeeMaster\EmployeeMaster\obj\Debug\netcoreapp3.1\EmployeeMaster.csproj.AssemblyReference.cache
