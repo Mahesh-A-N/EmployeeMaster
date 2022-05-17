@@ -24,9 +24,17 @@ namespace EmployeeMaster.EmployeeData
         }
         public Employee AddEmployee(Employee employee)
         {
-            _employeeContext.employees.Add(employee);
-            _employeeContext.SaveChanges();
+            var EmployeeData = _employeeContext.employees.Find(employee.EmployeeERPId);
+            if (EmployeeData == null)
+            {
+                employee.EmployeeGuid = Convert.ToString(Guid.NewGuid());
+                _employeeContext.employees.Add(employee);
+                _employeeContext.SaveChanges();
+                
+            }
             return employee;
+
+
         }
         public Employee EditEmployee(Employee employee)
         {
@@ -35,6 +43,7 @@ namespace EmployeeMaster.EmployeeData
             if (ValidateERPId!=null)
             {
                 ValidateERPId.Name = employee.Name;
+                employee.EmployeeGuid = ValidateERPId.EmployeeGuid;
                 _employeeContext.employees.Update(ValidateERPId);
                 _employeeContext.SaveChanges();
                

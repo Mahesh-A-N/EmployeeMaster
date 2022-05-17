@@ -44,8 +44,17 @@ namespace EmployeeMaster.Controllers
         [Route("api/[controller]")]
         public IActionResult AddEmployee([FromBody]  Employee employee)
         {
-            _employeeData.AddEmployee(employee);
-            return Created(HttpContext.Request.Scheme + "://" + HttpContext.Request.Host + HttpContext.Request.Path +"/"+ employee.EmployeeERPId, employee);
+            var EmployeeData = _employeeData.GetEmployee(employee.EmployeeERPId);
+            if (EmployeeData == null)
+            {
+                _employeeData.AddEmployee(employee);
+                return Created(HttpContext.Request.Scheme + "://" + HttpContext.Request.Host + HttpContext.Request.Path + "/" + employee.EmployeeERPId, employee);
+            }
+            else
+            {
+                return NotFound($"Empoloyee With Same ERPId Already Available : {employee.EmployeeERPId}");
+            }
+
         }
         [HttpPatch]
         [Route("api/[controller]")]
